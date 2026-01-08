@@ -16,6 +16,7 @@
   会場：IPEホール（予定）
 
 ---
+<hr style="border:0;border-top:1px solid #ccc;">
 
 ### 大会長
 辻 尚利  
