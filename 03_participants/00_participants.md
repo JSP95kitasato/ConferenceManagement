@@ -4,7 +4,7 @@
 ## Confit 参加者・演題管理サイト
 
 - **URL**  
-  https://jsparasitol.confit.atlas.jp/secretariat/meeting/2240
+  [https://jsparasitol.confit.atlas.jp/secretariat/meeting/2240](https://jsparasitol.confit.atlas.jp/secretariat/meeting/2240)
 
 - **ログイン情報**  
   - ログインID：`jsparasitol`  
