@@ -11,7 +11,7 @@
 辻　尚利（北里大学医学部　寄生虫学・熱帯医学）  
 
 ### プログラム概要
-- 学会通常総会</li>
+- 学会通常総会
 - オープニング・リマークス（駐日ガーナ共和国特命全権大使：Mrs. Genevieve Edna Apaloo）
 - 基調講演（ガーナ大学・野口記念医学研究所・所長：Prof. Dorothy Yeboah-Manu）
 - 招待講演（野口記念医学研究所・前寄生虫部長：Prof. Irene Ayi、寄生虫部長：Prof. Anita Gansah）
