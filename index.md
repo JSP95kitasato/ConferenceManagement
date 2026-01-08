@@ -1,5 +1,4 @@
-
-![ヘッダー](./01_画像/参加証タイトル案②.jpg)
+![ヘッダー](https://github.com/JSP95kitasato/ConferenceManagement/blob/main/01_画像/ヘッダー.jpg)
 # 第95回日本寄生虫学会大会　運営事務局
 ## 開催概要
 ### 会期
