@@ -50,7 +50,7 @@ Tel：042-778-9312
 - **会場**：北里大学 相模原キャンパス　IPE棟 食堂・カフェテリア  
 
 ## 運営進捗管理
-- [関連スケジュール](./02_schedule/00_schedule.md)
+- [関連スケジュール](./02_schedule/00_schedule.html)
 - [参加者進捗](./03_participants/00_participants.md)
 - [プログラム編成](./04_program/00_program.html)
 - [懇親会](./05_banquet/00_banquet.md)
