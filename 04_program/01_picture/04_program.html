@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>04_program.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><img src="./01_picture/header.jpg" alt="ヘッダー"></p>
+<h1 id="%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E7%B7%A8%E6%88%90">プログラム編成</h1>
+<h2 id="%E5%A4%A7%E4%BC%9A%E6%97%A5%E7%A8%8B%E6%9A%AB%E5%AE%9A%E7%89%88">大会日程（暫定版）</h2>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JSP95 Timetable</title>
+<style>
+  :root{
+    --line: #d9d9d9;
+    --line-strong: #bdbdbd;
+    --dash: #c7c7c7;
+    --bg: #fafafa;
+    --txt: #222;
+    --head: #2c5d84;
+  }
+  body{
+    font-family: "Helvetica","Arial","Hiragino Sans","Meiryo",sans-serif;
+    line-height: 1.7;
+    margin: 32px;
+    color: var(--txt);
+    background: var(--bg);
+  }
+  h2{
+    margin: 26px 0 10px;
+    color: var(--head);
+    border-left: 6px solid var(--head);
+    padding-left: 10px;
+  }
+  .tt-wrap{ margin: 12px 0 30px; }
+  table.tt{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .tt th, .tt td{
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+    vertical-align: top;
+    font-size: 14px;
+  }
+  .tt thead th{
+    background: #f4f6f8;
+    color: #1b4965;
+    font-weight: 700;
+  }
+  .tt .time{
+    width: 120px;
+    white-space: nowrap;
+    font-weight: 700;
+    background: #fbfbfb;
+  }
+  /* グリッド線：時間欄は1時間おき（強線）、他は30分おき（点線） */
+  .tt tr.hr td, .tt tr.hr th{
+    border-top: 2px solid var(--line-strong) !important;
+  }
+  .tt tr.hh td:not(.time){
+    border-top: 1px dashed var(--dash) !important;
+  }
+  /* セルの見た目 */
+  .slot{
+    border-radius: 8px;
+    padding: 6px 8px;
+    background: #f7fbff;
+  }
+  .slot .title{
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .slot .meta{
+    font-size: 12px;
+    opacity: .85;
+  }
+  .badge{
+    display:inline-block;
+    padding:2px 8px;
+    border-radius: 999px;
+    background:#e8f4ff;
+    border:1px solid #cfe6ff;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .badge.break{ background:#fff6e6; border-color:#ffe0a8; }
+  .badge.plenary{ background:#e8fff6; border-color:#bfeedd; }
+  .badge.poster{ background:#f3e8ff; border-color:#e2c9ff; }
+  .note{
+    font-size: 12px;
+    color:#555;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<!-- =========================
+ 要件
+ 3日間すべての表で会場列を固定表示：
+ 「IPEホール」「チーム医療演習室」「M101講義室」「M102講義室」「M103講義室」「医療衛生学部多目的室」「IPE棟 4階ラウンジ」
+ ※ 当日セッションがなくても列は表示する（空欄OK）
+========================= -->
+<!-- =========================
+ Day 1: 2026-03-20 (Fri)
+ Time range: 13:00–17:00 (30-min grid)
+========================= -->
+<h2>Day 1 — 2026-03-20 (Fri)</h2>
+<div class="tt-wrap">
+<table class="tt">
+  <thead>
+    <tr class="hr">
+      <th class="time">Time</th>
+      <th>IPEホール</th>
+      <th>チーム医療演習室</th>
+      <th>M101講義室</th>
+      <th>M102講義室</th>
+      <th>M103講義室</th>
+      <th>医療衛生学部多目的室</th>
+      <th>IPE棟 4階ラウンジ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 13:00 -->
+    <tr class="hr">
+      <td class="time">13:00–13:30</td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge plenary">Plenary</span><br>機関誌運営委員会</div>
+          <div class="meta">13:00–15:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.1</div>
+          <div class="meta">13:00–15:00</div>
+        </div>
+      </td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.3</div>
+          <div class="meta">13:00–15:00</div>
+        </div>
+      </td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.5</div>
+          <div class="meta">13:00–15:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="hh">
+      <td class="time">13:30–14:00</td>
+      <td></td><td></td><td></td>
+    </tr>
+    <tr class="hr">
+      <td class="time">14:00–14:30</td>
+      <td></td><td></td><td></td>
+    </tr>
+    <tr class="hh">
+      <td class="time">14:30–15:00</td>
+      <td></td><td></td><td></td>
+    </tr>
+    <!-- 15:00 -->
+    <tr class="hr">
+      <td class="time">15:00–15:30</td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge plenary">Plenary</span><br>日本寄生虫学会理事会</div>
+          <div class="meta">15:00–17:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.2</div>
+          <div class="meta">15:00–17:00</div>
+        </div>
+      </td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.4</div>
+          <div class="meta">15:00–17:00</div>
+        </div>
+      </td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.6</div>
+          <div class="meta">15:00–17:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="hh">
+      <td class="time">15:30–16:00</td>
+      <td></td><td></td><td></td>
+    </tr>
+    <tr class="hr">
+      <td class="time">16:00–16:30</td>
+      <td></td><td></td><td></td>
+    </tr>
+    <tr class="hh">
+      <td class="time">16:30–17:00</td>
+      <td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- =========================
+ Day 2: 2026-03-21 (Sat)
+ Time range: 08:30–18:00 (30-min grid)
+ Lunch: 12:00–13:00 (ALL rooms)
+========================= -->
+<h2>Day 2 — 2026-03-21 (Sat)</h2>
+<div class="tt-wrap">
+<table class="tt">
+  <thead>
+    <tr class="hr">
+      <th class="time">Time</th>
+      <th>IPEホール</th>
+      <th>チーム医療演習室</th>
+      <th>M101講義室</th>
+      <th>M102講義室</th>
+      <th>M103講義室</th>
+      <th>医療衛生学部多目的室</th>
+      <th>IPE棟 4階ラウンジ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 08:30 -->
+    <tr class="hr">
+      <td class="time">08:30–09:00</td>
+      <td>
+        <div class="slot">
+          <div class="title"><span class="badge plenary">Ceremony</span><br>開会式</div>
+          <div class="meta">08:50–09:00</div>
+        </div>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <!-- 09:00 -->
+    <tr class="hr">
+      <td class="time">09:00–09:30</td>
+      <td rowspan="3">
+        <div class="slot">
+          <div class="title"><span class="badge">BPA</span><br>ベストプレゼンテーション賞</div>
+          <div class="meta">09:00–10:30</div>
+        </div>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr class="hh">
+      <td class="time">09:30–10:00</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr class="hr">
+      <td class="time">10:00–10:30</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <!-- 10:30 -->
+    <tr class="hh">
+      <td class="time">10:30–11:00</td>
+      <td rowspan="3">
+        <div class="slot">
+          <div class="title"><span class="badge plenary">Plenary</span><br>総会</div>
+          <div class="meta">10:30–12:00</div>
+        </div>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td>
+      <td></td>
+    </tr>
+    <!-- 11:00 ポスター（ラウンジ） -->
+    <tr class="hr">
+      <td class="time">11:00–11:30</td>
+      <td></td><td></td><td></td><td></td><td></td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge poster">Poster</span><br>ポスター</div>
+          <div class="meta">11:00–12:00</div>
+        </div>
+      </td>
+    </tr>
+    <tr class="hh">
+      <td class="time">11:30–12:00</td>
+      <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <!-- 12:00 Lunch ALL -->
+    <tr class="hr">
+      <td class="time">12:00–12:30</td>
+      <td colspan="7" rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge break">Break</span><br>Lunch（食堂・カフェテリア）</div>
+          <div class="meta">12:00–13:00</div>
+        </div>
+      </td>
+    </tr>
+    <tr class="hh"><td class="time">12:30–13:00</td></tr>
+    <!-- 13:00 -->
+    <tr class="hr">
+      <td class="time">13:00–13:30</td>
+      <td rowspan="4">
+        <div class="slot">
+          <div class="title"><span class="badge">Symposium</span><br>北里野口感染症研究開発センター（KNrdc）シンポジウム</div>
+          <div class="meta">13:00–15:00</div>
+        </div>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr class="hh"><td class="time">13:30–14:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="hr"><td class="time">14:00–14:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="hh"><td class="time">14:30–15:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <!-- 15:00 -->
+    <tr class="hr">
+      <td class="time">15:00–15:30</td>
+      <td rowspan="6">
+        <div class="slot">
+          <div class="title"><span class="badge">Symposium</span><br>AKPSシンポジウム</div>
+          <div class="meta">15:00–18:00</div>
+        </div>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr class="hh"><td class="time">15:30–16:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="hr"><td class="time">16:00–16:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="hh"><td class="time">16:30–17:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="hr"><td class="time">17:00–17:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr class="hh"><td class="time">17:30–18:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </tbody>
+</table>
+</div>
+<!-- =========================
+ Day 3: 2026-03-22 (Sun)
+ Time range: 09:00–16:30 (30-min grid)
+ 変更点：15:00–16:00 に「ポスター撤収」を IPE棟 4階ラウンジで実施
+========================= -->
+<h2>Day 3 — 2026-03-22 (Sun)</h2>
+<div class="tt-wrap">
+<table class="tt">
+  <thead>
+    <tr class="hr">
+      <th class="time">Time</th>
+      <th>IPEホール</th>
+      <th>チーム医療演習室</th>
+      <th>M101講義室</th>
+      <th>M102講義室</th>
+      <th>M103講義室</th>
+      <th>医療衛生学部多目的室</th>
+      <th>IPE棟 4階ラウンジ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 09:00 -->
+    <tr class="hr">
+      <td class="time">09:00–09:30</td>
+      <td rowspan="3">
+        <div class="slot">
+          <div class="title"><span class="badge">Session</span><br>海外研究者との交流セッション</div>
+          <div class="meta">09:00–10:30</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.3</div>
+          <div class="meta">09:00–10:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.8</div>
+          <div class="meta">09:00–10:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.13</div>
+          <div class="meta">09:00–10:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.18</div>
+          <div class="meta">09:00–10:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="hh"><td class="time">09:30–10:00</td><td></td><td></td></tr>
+    <!-- 10:00 -->
+    <tr class="hr">
+      <td class="time">10:00–10:30</td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.4</div>
+          <div class="meta">10:00–11:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.9</div>
+          <div class="meta">10:00–11:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.14</div>
+          <div class="meta">10:00–11:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.19</div>
+          <div class="meta">10:00–11:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <!-- 10:30 -->
+    <tr class="hh">
+      <td class="time">10:30–11:00</td>
+      <td rowspan="3">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.1</div>
+          <div class="meta">10:30–12:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <!-- 11:00 -->
+    <tr class="hr">
+      <td class="time">11:00–11:30</td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.5</div>
+          <div class="meta">11:00–12:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.10</div>
+          <div class="meta">11:00–12:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.15</div>
+          <div class="meta">11:00–12:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.20</div>
+          <div class="meta">11:00–12:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="hh"><td class="time">11:30–12:00</td><td></td><td></td></tr>
+    <!-- 12:00 -->
+    <tr class="hr">
+      <td class="time">12:00–12:30</td>
+      <td></td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Meeting</span><br>プログラム委員会</div>
+          <div class="meta">12:00–13:00</div>
+        </div>
+      </td>
+      <td></td><td></td><td></td><td></td>
+      <td></td>
+    </tr>
+    <tr class="hh">
+      <td class="time">12:30–13:00</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <!-- 13:00 -->
+    <tr class="hr">
+      <td class="time">13:00–13:30</td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.2</div>
+          <div class="meta">13:00–14:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.6</div>
+          <div class="meta">13:00–14:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.11</div>
+          <div class="meta">13:00–14:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.16</div>
+          <div class="meta">13:00–14:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.21</div>
+          <div class="meta">13:00–14:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="hh"><td class="time">13:30–14:00</td><td></td><td></td></tr>
+    <!-- 14:00 -->
+    <tr class="hr">
+      <td class="time">14:00–14:30</td>
+      <td></td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.7</div>
+          <div class="meta">14:00–15:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.12</div>
+          <div class="meta">14:00–15:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.17</div>
+          <div class="meta">14:00–15:00</div>
+        </div>
+      </td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge">Oral</span><br>一般口演 No.22</div>
+          <div class="meta">14:00–15:00</div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="hh"><td class="time">14:30–15:00</td><td></td><td></td><td></td></tr>
+    <!-- 15:00 -->
+    <tr class="hr">
+      <td class="time">15:00–15:30</td>
+      <td rowspan="3">
+        <div class="slot">
+          <div class="title"><span class="badge">ICD</span><br>ICD講習会</div>
+          <div class="meta">15:00–16:10</div>
+        </div>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td>
+      <td rowspan="2">
+        <div class="slot">
+          <div class="title"><span class="badge poster">Poster</span><br>ポスター撤収</div>
+          <div class="meta">15:00–16:00</div>
+        </div>
+      </td>
+    </tr>
+    <tr class="hh">
+      <td class="time">15:30–16:00</td>
+      <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <!-- 16:00 -->
+    <tr class="hr">
+      <td class="time">16:00–16:30</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+<div class="note">
+  ※ グリッドは「時間欄：1時間境界＝太線」「各会場：30分境界＝点線」で表現しています。<br>
+  ※ 08:50開始など30分刻みに合わないイベントは、該当枠内に実時間を併記しています。<br>
+  ※ 要件により、全日程で会場列を固定表示しています。
+</div>
+</div>
+</body>
+</html>
+<p><a href="./TimeTable.xlsx">タイムテーブルExcelシート</a></p>
+<h2 id="%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E7%B7%A8%E6%88%90%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB">プログラム編成スケジュール</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">日程</th>
+<th style="text-align:left">内容</th>
+<th style="text-align:center">担当</th>
+<th style="text-align:left">経過</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2025年12月19日</td>
+<td style="text-align:left">演題締切</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2025年12月25日</td>
+<td style="text-align:left">プログラム編成委員会Confit運用方法打ち合わせ</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年1月6日</td>
+<td style="text-align:left">プログラム編成依頼</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年1月6日〜30日</td>
+<td style="text-align:left">プログラム編成期間</td>
+<td style="text-align:center">プログラム編成委員会</td>
+<td style="text-align:left">⬅️ NOW</td>
+</tr>
+<tr>
+<td style="text-align:center">2026年1月13日</td>
+<td style="text-align:left">BPA選考締切</td>
+<td style="text-align:center">プログラム編成委員会</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年1月30日</td>
+<td style="text-align:left">プログラム編成締切</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年2月2日</td>
+<td style="text-align:left">講演番号発行</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年2月3日〜6日</td>
+<td style="text-align:left">データ加工期間・完了連絡</td>
+<td style="text-align:center">株式会社アトラス</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年2月9日</td>
+<td style="text-align:left">プログラム公開</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E9%9B%86%E4%BD%9C%E6%88%90%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB">プログラム集作成スケジュール</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">日程</th>
+<th style="text-align:left">内容</th>
+<th style="text-align:center">担当</th>
+<th style="text-align:left">経過</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2026年2月9日</td>
+<td style="text-align:left">プログラム公開</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年2月9日日</td>
+<td style="text-align:left">プログラム集作成依頼</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年2月16日</td>
+<td style="text-align:left">プログラム集初稿脱稿</td>
+<td style="text-align:center">日相印刷</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年2月17日</td>
+<td style="text-align:left">プログラム集最終盤確定</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年2月27日</td>
+<td style="text-align:left">プログラム集最終盤脱稿</td>
+<td style="text-align:center">日相印刷</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2026年3月2日</td>
+<td style="text-align:left">プログラム集最終盤　企業に送付</td>
+<td style="text-align:center">学会事務局</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
