@@ -53,10 +53,9 @@ Tel：042-778-9312
 - [関連スケジュール](./02_schedule/00_schedule.html)
 - [参加者進捗](./03_participants/00_participants.html)
 - [プログラム編成](./04_program/00_program.html)
-- [懇親会](./05_banquet/00_banquet.html)
-- [会場設置](./06_venue/00_venue.html)
-- [会計管理](./07_accounting/00_accounting.html)
-- [その他関連書類](./08_others/00_others.html)
+- [会場設置・懇親会](./05_banquet/00_banquet.html)
+- [会計管理](./06_accounting/00_accounting.html)
+- [その他関連書類](./07_others/00_others.html)
 
 ## 関連サイト
 
