@@ -52,7 +52,7 @@ Tel：042-778-9312
 ## 運営進捗管理
 - [関連スケジュール](./02_schedule/00_schedule.md)
 - [参加者進捗](./03_participants/00_participants.md)
-- [プログラム編成](./04_program/04_program.html)
+- [プログラム編成](./04_program/00_program.html)
 - [懇親会](./05_banquet/00_banquet.md)
 - [会場設置](./06_venue/00_venue.md)
 - [会計管理](./07_accounting/00_accounting.md)
