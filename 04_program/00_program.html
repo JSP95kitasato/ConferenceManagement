@@ -1,663 +1,209 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>プログラム編成｜第95回日本寄生虫学会大会（暫定）</title>
-  <style>
-    :root{
-      --line: #d9d9d9;
-      --line-strong: #bdbdbd;
-      --dash: #c7c7c7;
-      --bg: #fafafa;
-      --txt: #222;
-      --head: #2c5d84;
-      --muted:#555;
-      --card:#fff;
-    }
-    body{
-      font-family: "Helvetica","Arial","Hiragino Sans","Meiryo",sans-serif;
-      line-height: 1.7;
-      margin: 32px;
-      color: var(--txt);
-      background: var(--bg);
-    }
-    .header-img{
-      width: 100%;
-      max-width: 980px;
-      height: auto;
-      display:block;
-      border-radius: 12px;
-      margin: 0 0 18px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.06);
-    }
-    h1{
-      margin: 6px 0 8px;
-      color: var(--head);
-      border-bottom: 3px solid var(--head);
-      padding-bottom: 6px;
-      max-width: 980px;
-    }
-    h2{
-      margin: 24px 0 10px;
-      color: var(--head);
-      border-left: 6px solid var(--head);
-      padding-left: 10px;
-      max-width: 980px;
-    }
-    h3{
-      margin: 18px 0 8px;
-      color: var(--head);
-      max-width: 980px;
-    }
-    .container{ max-width: 980px; }
+<!-- =========================
+  Day 1: 2026-03-20 (Fri)
+  Time range: 13:00–19:00 (30-min grid)
+  Updated by CSV
+========================= -->
+<h2>Day 1 — 2026-03-20 (Fri)</h2>
+<div class="tt-wrap">
+  <table class="tt">
+    <thead>
+      <tr class="hr">
+        <th class="time">Time</th>
+        <th>IPEホール</th>
+        <th>チーム医療演習室</th>
+        <th>M101講義室</th>
+        <th>M102講義室</th>
+        <th>M103講義室</th>
+        <th>医療衛生学部多目的室</th>
+        <th>IPE棟 4階ラウンジ</th>
+      </tr>
+    </thead>
 
-    .link{
-      display:inline-block;
-      margin: 6px 0 18px;
-      color: var(--head);
-      text-decoration: none;
-      font-weight: 700;
-    }
-    .link:hover{ text-decoration: underline; }
+    <tbody>
+      <!-- 13:00 -->
+      <tr class="hr">
+        <td class="time">13:00–13:30</td>
+        <td></td>
 
-    /* ===== Timetable ===== */
-    .tt-wrap{ margin: 12px 0 30px; }
-    table.tt{
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .tt th, .tt td{
-      border: 1px solid var(--line);
-      padding: 8px 10px;
-      vertical-align: top;
-      font-size: 14px;
-    }
-    .tt thead th{
-      background: #f4f6f8;
-      color: #1b4965;
-      font-weight: 700;
-    }
-    .tt .time{
-      width: 120px;
-      white-space: nowrap;
-      font-weight: 700;
-      background: #fbfbfb;
-    }
-    /* グリッド線：時間欄は1時間おき（強線）、他は30分おき（点線） */
-    .tt tr.hr td, .tt tr.hr th{
-      border-top: 2px solid var(--line-strong) !important;
-    }
-    .tt tr.hh td:not(.time){
-      border-top: 1px dashed var(--dash) !important;
-    }
+        <!-- チーム医療演習室 13:00–15:00（同時間帯に2件） -->
+        <td rowspan="4">
+          <div class="slot">
+            <div class="title"><span class="badge">Meeting</span><br>機関誌運営委員会</div>
+            <div class="meta">13:00–15:00</div>
+          </div>
+          <div class="slot" style="margin-top:8px;">
+            <div class="title"><span class="badge">Meeting</span><br>日本寄生虫学会理事会</div>
+            <div class="meta">13:00–15:00</div>
+          </div>
+        </td>
 
-    /* セルの見た目 */
-    .slot{
-      border-radius: 8px;
-      padding: 6px 8px;
-      background: #f7fbff;
-    }
-    .slot .title{
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-    .slot .meta{
-      font-size: 12px;
-      opacity: .85;
-    }
-    .badge{
-      display:inline-block;
-      padding:2px 8px;
-      border-radius: 999px;
-      background:#e8f4ff;
-      border:1px solid #cfe6ff;
-      font-size: 12px;
-      font-weight: 700;
-      margin-right: 6px;
-    }
-    .badge.break{ background:#fff6e6; border-color:#ffe0a8; }
-    .badge.plenary{ background:#e8fff6; border-color:#bfeedd; }
-    .badge.poster{ background:#f3e8ff; border-color:#e2c9ff; }
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-    .note{
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 8px;
-      max-width: 980px;
-    }
+      <!-- 13:30 -->
+      <tr class="hh">
+        <td class="time">13:30–14:00</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
 
-    /* ===== Markdown-like tables (schedule) ===== */
-    table.md{
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 10px 0 22px;
-      font-size: 14px;
-    }
-    table.md th, table.md td{
-      border: 1px solid var(--line);
-      padding: 8px 10px;
-      vertical-align: top;
-    }
-    table.md thead th{
-      background: #f4f6f8;
-      color: #1b4965;
-      font-weight: 700;
-      text-align: center;
-    }
-    .center{ text-align:center; white-space:nowrap; }
-    .status-now{ font-weight: 800; }
-  </style>
-</head>
+      <!-- 14:00 -->
+      <tr class="hr">
+        <td class="time">14:00–14:30</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
 
-<body>
-  <div class="container">
+      <!-- 14:30 -->
+      <tr class="hh">
+        <td class="time">14:30–15:00</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
 
-    <!-- Header image -->
-    <img src="./01_picture/header.jpg" alt="ヘッダー" style="max-width: 100%; height: auto;">
+      <!-- 15:00 -->
+      <tr class="hr">
+        <td class="time">15:00–15:30</td>
+        <td></td>
+        <td></td>
+        <td></td>
 
-    <h1>プログラム編成</h1>
-    <h2>大会日程（暫定版）</h2>
+        <!-- M102 15:00–17:00 -->
+        <td rowspan="4">
+          <div class="slot">
+            <div class="title"><span class="badge">Session</span><br>原生生物学・共生生物学談話会</div>
+            <div class="meta">15:00–17:00</div>
+          </div>
+        </td>
 
-    <!-- 要件
-      3日間すべての表で会場列を固定表示：
-      「IPEホール」「チーム医療演習室」「M101講義室」「M102講義室」「M103講義室」「医療衛生学部多目的室」「IPE棟 4階ラウンジ」
-      ※ 当日セッションがなくても列は表示する（空欄OK）
-    -->
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-    <!-- =========================
-      Day 1: 2026-03-20 (Fri)
-      Time range: 13:00–17:00 (30-min grid)
-    ========================= -->
-    <h2>Day 1 — 2026-03-20 (Fri)</h2>
-    <div class="tt-wrap">
-      <table class="tt">
-        <thead>
-          <tr class="hr">
-            <th class="time">Time</th>
-            <th>IPEホール</th>
-            <th>チーム医療演習室</th>
-            <th>M101講義室</th>
-            <th>M102講義室</th>
-            <th>M103講義室</th>
-            <th>医療衛生学部多目的室</th>
-            <th>IPE棟 4階ラウンジ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="hr">
-            <td class="time">13:00–13:30</td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge plenary">Plenary</span><br>機関誌運営委員会</div>
-                <div class="meta">13:00–15:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.1</div>
-                <div class="meta">13:00–15:00</div>
-              </div>
-            </td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.3</div>
-                <div class="meta">13:00–15:00</div>
-              </div>
-            </td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.5</div>
-                <div class="meta">13:00–15:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hh">
-            <td class="time">13:30–14:00</td>
-            <td></td><td></td><td></td>
-          </tr>
-          <tr class="hr">
-            <td class="time">14:00–14:30</td>
-            <td></td><td></td><td></td>
-          </tr>
-          <tr class="hh">
-            <td class="time">14:30–15:00</td>
-            <td></td><td></td><td></td>
-          </tr>
+      <!-- 15:30 -->
+      <tr class="hh">
+        <td class="time">15:30–16:00</td>
+        <td></td>
+        <td></td>
 
-          <tr class="hr">
-            <td class="time">15:00–15:30</td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge plenary">Plenary</span><br>日本寄生虫学会理事会</div>
-                <div class="meta">15:00–17:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.2</div>
-                <div class="meta">15:00–17:00</div>
-              </div>
-            </td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.4</div>
-                <div class="meta">15:00–17:00</div>
-              </div>
-            </td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge">Satellite</span><br>サテライトミーティング No.6</div>
-                <div class="meta">15:00–17:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hh">
-            <td class="time">15:30–16:00</td>
-            <td></td><td></td><td></td>
-          </tr>
-          <tr class="hr">
-            <td class="time">16:00–16:30</td>
-            <td></td><td></td><td></td>
-          </tr>
-          <tr class="hh">
-            <td class="time">16:30–17:00</td>
-            <td></td><td></td><td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <!-- M101 15:30–16:30 -->
+        <td rowspan="2">
+          <div class="slot">
+            <div class="title"><span class="badge">Session</span><br>寄生虫分類形態談話会</div>
+            <div class="meta">15:30–16:30</div>
+          </div>
+        </td>
 
-    <!-- =========================
-      Day 2: 2026-03-21 (Sat)
-      Time range: 08:30–18:00 (30-min grid)
-      Lunch: 12:00–13:00
-    ========================= -->
-    <h2>Day 2 — 2026-03-21 (Sat)</h2>
-    <div class="tt-wrap">
-      <table class="tt">
-        <thead>
-          <tr class="hr">
-            <th class="time">Time</th>
-            <th>IPEホール</th>
-            <th>チーム医療演習室</th>
-            <th>M101講義室</th>
-            <th>M102講義室</th>
-            <th>M103講義室</th>
-            <th>医療衛生学部多目的室</th>
-            <th>IPE棟 4階ラウンジ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="hr">
-            <td class="time">08:30–09:00</td>
-            <td>
-              <div class="slot">
-                <div class="title"><span class="badge plenary">Ceremony</span><br>開会式</div>
-                <div class="meta">08:50–09:00</div>
-              </div>
-            </td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
+        <!-- M102 は rowspan 継続中 -->
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-          <tr class="hr">
-            <td class="time">09:00–09:30</td>
-            <td rowspan="3">
-              <div class="slot">
-                <div class="title"><span class="badge">BPA</span><br>ベストプレゼンテーション賞</div>
-                <div class="meta">09:00–10:30</div>
-              </div>
-            </td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
-          <tr class="hh">
-            <td class="time">09:30–10:00</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
-          <tr class="hr">
-            <td class="time">10:00–10:30</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
+      <!-- 16:00 -->
+      <tr class="hr">
+        <td class="time">16:00–16:30</td>
+        <td></td><td></td>
+        <!-- M101 は rowspan 継続中 -->
+        <!-- M102 は rowspan 継続中 -->
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-          <!-- ★ ここは 1時間境界なので hr に統一 -->
-          <tr class="hr">
-            <td class="time">10:30–11:00</td>
-            <td rowspan="3">
-              <div class="slot">
-                <div class="title"><span class="badge plenary">Plenary</span><br>総会</div>
-                <div class="meta">10:30–12:00</div>
-              </div>
-            </td>
-            <td></td><td></td><td></td><td></td><td></td>
-            <td></td>
-          </tr>
+      <!-- 16:30 -->
+      <tr class="hh">
+        <td class="time">16:30–17:00</td>
+        <td></td>
+        <td></td>
 
-          <tr class="hr">
-            <td class="time">11:00–11:30</td>
-            <td></td><td></td><td></td><td></td><td></td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge poster">Poster</span><br>ポスター</div>
-                <div class="meta">11:00–12:00</div>
-              </div>
-            </td>
-          </tr>
-          <tr class="hh">
-            <td class="time">11:30–12:00</td>
-            <td></td><td></td><td></td><td></td><td></td>
-          </tr>
+        <!-- M101 16:30–18:30 -->
+        <td rowspan="4">
+          <div class="slot">
+            <div class="title"><span class="badge">Session</span><br>生態学・疫学談話会</div>
+            <div class="meta">16:30–18:30</div>
+          </div>
+        </td>
 
-          <tr class="hr">
-            <td class="time">12:00–12:30</td>
-            <td colspan="7" rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge break">Break</span><br>Lunch（食堂・カフェテリア）</div>
-                <div class="meta">12:00–13:00</div>
-              </div>
-            </td>
-          </tr>
-          <tr class="hh">
-            <td class="time">12:30–13:00</td>
-          </tr>
+        <!-- M102 は rowspan 継続中（〜17:00） -->
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-          <tr class="hr">
-            <td class="time">13:00–13:30</td>
-            <td rowspan="4">
-              <div class="slot">
-                <div class="title"><span class="badge">Symposium</span><br>北里野口感染症研究開発センター（KNrdc）シンポジウム</div>
-                <div class="meta">13:00–15:00</div>
-              </div>
-            </td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
-          <tr class="hh"><td class="time">13:30–14:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr class="hr"><td class="time">14:00–14:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr class="hh"><td class="time">14:30–15:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <!-- 17:00 -->
+      <tr class="hr">
+        <td class="time">17:00–17:30</td>
+        <td></td>
+        <td></td>
+        <!-- M101 は rowspan 継続中 -->
 
-          <tr class="hr">
-            <td class="time">15:00–15:30</td>
-            <td rowspan="6">
-              <div class="slot">
-                <div class="title"><span class="badge">Symposium</span><br>AKPSシンポジウム</div>
-                <div class="meta">15:00–18:00</div>
-              </div>
-            </td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
-          <tr class="hh"><td class="time">15:30–16:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr class="hr"><td class="time">16:00–16:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr class="hh"><td class="time">16:30–17:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr class="hr"><td class="time">17:00–17:30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr class="hh"><td class="time">17:30–18:00</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        </tbody>
-      </table>
-    </div>
+        <!-- M102 17:00–19:00 -->
+        <td rowspan="4">
+          <div class="slot">
+            <div class="title"><span class="badge">Session</span><br>分子生物学・生理生化学研究会</div>
+            <div class="meta">17:00–19:00</div>
+          </div>
+        </td>
 
-    <!-- =========================
-      Day 3: 2026-03-22 (Sun)
-      Time range: 09:00–16:30 (30-min grid)
-      Poster removal: 15:00–16:00 @ IPE棟 4階ラウンジ
-    ========================= -->
-    <h2>Day 3 — 2026-03-22 (Sun)</h2>
-    <div class="tt-wrap">
-      <table class="tt">
-        <thead>
-          <tr class="hr">
-            <th class="time">Time</th>
-            <th>IPEホール</th>
-            <th>チーム医療演習室</th>
-            <th>M101講義室</th>
-            <th>M102講義室</th>
-            <th>M103講義室</th>
-            <th>医療衛生学部多目的室</th>
-            <th>IPE棟 4階ラウンジ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="hr">
-            <td class="time">09:00–09:30</td>
-            <td rowspan="3">
-              <div class="slot">
-                <div class="title"><span class="badge">Session</span><br>海外研究者との交流セッション</div>
-                <div class="meta">09:00–10:30</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.3</div>
-                <div class="meta">09:00–10:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.8</div>
-                <div class="meta">09:00–10:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.13</div>
-                <div class="meta">09:00–10:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.18</div>
-                <div class="meta">09:00–10:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hh"><td class="time">09:30–10:00</td><td></td><td></td></tr>
+        <!-- M103 17:00–18:00 -->
+        <td rowspan="2">
+          <div class="slot">
+            <div class="title"><span class="badge">Session</span><br>寄生虫疾患臨床検討会</div>
+            <div class="meta">17:00–18:00</div>
+          </div>
+        </td>
 
-          <tr class="hr">
-            <td class="time">10:00–10:30</td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.4</div>
-                <div class="meta">10:00–11:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.9</div>
-                <div class="meta">10:00–11:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.14</div>
-                <div class="meta">10:00–11:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.19</div>
-                <div class="meta">10:00–11:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
+        <td></td>
+        <td></td>
+      </tr>
 
-          <tr class="hh">
-            <td class="time">10:30–11:00</td>
-            <td rowspan="3">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.1</div>
-                <div class="meta">10:30–12:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
+      <!-- 17:30 -->
+      <tr class="hh">
+        <td class="time">17:30–18:00</td>
+        <td></td><td></td>
+        <!-- M101 は rowspan 継続中 -->
+        <!-- M102 は rowspan 継続中 -->
+        <!-- M103 は rowspan 継続中 -->
+        <td></td>
+        <td></td>
+      </tr>
 
-          <tr class="hr">
-            <td class="time">11:00–11:30</td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.5</div>
-                <div class="meta">11:00–12:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.10</div>
-                <div class="meta">11:00–12:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.15</div>
-                <div class="meta">11:00–12:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.20</div>
-                <div class="meta">11:00–12:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hh"><td class="time">11:30–12:00</td><td></td><td></td></tr>
+      <!-- 18:00 -->
+      <tr class="hr">
+        <td class="time">18:00–18:30</td>
+        <td></td>
+        <td></td>
+        <!-- M101 は rowspan 継続中 -->
+        <!-- M102 は rowspan 継続中 -->
 
-          <tr class="hr">
-            <td class="time">12:00–12:30</td>
-            <td></td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Meeting</span><br>プログラム委員会</div>
-                <div class="meta">12:00–13:00</div>
-              </div>
-            </td>
-            <td></td><td></td><td></td><td></td>
-            <td></td>
-          </tr>
-          <tr class="hh">
-            <td class="time">12:30–13:00</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
+        <!-- M103 18:00–19:00 -->
+        <td rowspan="2">
+          <div class="slot">
+            <div class="title"><span class="badge">Session</span><br>マラリア談話会</div>
+            <div class="meta">18:00–19:00</div>
+          </div>
+        </td>
 
-          <tr class="hr">
-            <td class="time">13:00–13:30</td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.2</div>
-                <div class="meta">13:00–14:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.6</div>
-                <div class="meta">13:00–14:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.11</div>
-                <div class="meta">13:00–14:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.16</div>
-                <div class="meta">13:00–14:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.21</div>
-                <div class="meta">13:00–14:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hh"><td class="time">13:30–14:00</td><td></td><td></td></tr>
+        <td></td>
+        <td></td>
+      </tr>
 
-          <tr class="hr">
-            <td class="time">14:00–14:30</td>
-            <td></td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.7</div>
-                <div class="meta">14:00–15:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.12</div>
-                <div class="meta">14:00–15:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.17</div>
-                <div class="meta">14:00–15:00</div>
-              </div>
-            </td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge">Oral</span><br>一般口演 No.22</div>
-                <div class="meta">14:00–15:00</div>
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr class="hh"><td class="time">14:30–15:00</td><td></td><td></td><td></td></tr>
-
-          <tr class="hr">
-            <td class="time">15:00–15:30</td>
-            <td rowspan="3">
-              <div class="slot">
-                <div class="title"><span class="badge">ICD</span><br>ICD講習会</div>
-                <div class="meta">15:00–16:10</div>
-              </div>
-            </td>
-            <td></td><td></td><td></td><td></td><td></td>
-            <td rowspan="2">
-              <div class="slot">
-                <div class="title"><span class="badge poster">Poster</span><br>ポスター撤収</div>
-                <div class="meta">15:00–16:00</div>
-              </div>
-            </td>
-          </tr>
-          <tr class="hh">
-            <td class="time">15:30–16:00</td>
-            <td></td><td></td><td></td><td></td><td></td>
-          </tr>
-          <tr class="hr">
-            <td class="time">16:00–16:30</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="note">
-        ※ グリッドは「時間欄：1時間境界＝太線」「各会場：30分境界＝点線」で表現しています。<br>
-        ※ 08:50開始など30分刻みに合わないイベントは、該当枠内に実時間を併記しています。<br>
-        ※ 要件により、全日程で会場列を固定表示しています。
-      </div>
-    </div>
+      <!-- 18:30 -->
+      <tr class="hh">
+        <td class="time">18:30–19:00</td>
+        <td></td><td></td>
+        <!-- M101 rowspan ends at 18:30（この行まで表示される） -->
+        <!-- M102 rowspan 継続中 -->
+        <!-- M103 rowspan 継続中 -->
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
     <p><a class="link" href="./TimeTable.xlsx">タイムテーブルExcelシート</a></p>
 
@@ -782,6 +328,7 @@
   </div>
 </body>
 </html>
+
 
 
 
