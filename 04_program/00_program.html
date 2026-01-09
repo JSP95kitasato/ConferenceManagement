@@ -51,6 +51,7 @@
       max-width: 980px;
     }
     .container{ max-width: 980px; }
+
     .link{
       display:inline-block;
       margin: 6px 0 18px;
@@ -154,29 +155,24 @@
       text-align: center;
     }
     .center{ text-align:center; white-space:nowrap; }
-    .status-now{
-      font-weight: 800;
-    }
+    .status-now{ font-weight: 800; }
   </style>
 </head>
 
 <body>
   <div class="container">
 
-    <!-- Header image (from Markdown: ![ヘッダー](./01_picture/header.jpg)) -->
+    <!-- Header image -->
     <img class="header-img" src="./01_picture/header.jpg" alt="ヘッダー" />
 
-    <!-- Headings (from Markdown: # / ## ) -->
     <h1>プログラム編成</h1>
-
     <h2>大会日程（暫定版）</h2>
 
-    <!-- =========================
-      要件
+    <!-- 要件
       3日間すべての表で会場列を固定表示：
       「IPEホール」「チーム医療演習室」「M101講義室」「M102講義室」「M103講義室」「医療衛生学部多目的室」「IPE棟 4階ラウンジ」
       ※ 当日セッションがなくても列は表示する（空欄OK）
-    ========================= -->
+    -->
 
     <!-- =========================
       Day 1: 2026-03-20 (Fri)
@@ -198,7 +194,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- 13:00 -->
           <tr class="hr">
             <td class="time">13:00–13:30</td>
             <td rowspan="4">
@@ -242,7 +237,6 @@
             <td></td><td></td><td></td>
           </tr>
 
-          <!-- 15:00 -->
           <tr class="hr">
             <td class="time">15:00–15:30</td>
             <td rowspan="4">
@@ -340,7 +334,8 @@
             <td></td><td></td><td></td><td></td><td></td><td></td>
           </tr>
 
-          <tr class="hh">
+          <!-- ★ ここは 1時間境界なので hr に統一 -->
+          <tr class="hr">
             <td class="time">10:30–11:00</td>
             <td rowspan="3">
               <div class="slot">
@@ -416,7 +411,7 @@
     <!-- =========================
       Day 3: 2026-03-22 (Sun)
       Time range: 09:00–16:30 (30-min grid)
-      Change: Poster removal 15:00–16:00 @ IPE棟 4階ラウンジ
+      Poster removal: 15:00–16:00 @ IPE棟 4階ラウンジ
     ========================= -->
     <h2>Day 3 — 2026-03-22 (Sun)</h2>
     <div class="tt-wrap">
@@ -663,9 +658,9 @@
         ※ 要件により、全日程で会場列を固定表示しています。
       </div>
     </div>
-    <!-- Excel link (from Markdown: [タイムテーブルExcelシート](./TimeTable.xlsx)) -->
+
     <p><a class="link" href="./TimeTable.xlsx">タイムテーブルExcelシート</a></p>
-    <!-- ===== Program scheduling tables ===== -->
+
     <h2>プログラム編成スケジュール</h2>
     <table class="md">
       <thead>
@@ -787,4 +782,3 @@
   </div>
 </body>
 </html>
-
